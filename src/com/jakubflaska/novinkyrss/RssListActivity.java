@@ -6,6 +6,7 @@ import java.util.Iterator;
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,12 @@ public class RssListActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.InitGui();
-		this.StartDeliveringFeeds();
+		Intent intent= getIntent(); // gets the previously created intent
+		String logo = intent.getStringExtra("logo"); // will return "FirstKeyValue"
+		String address = intent.getStringExtra("address"); // will return "SecondKeyValue"	
+		ArrayList<RssSourceAddress> list = new ArrayList<RssSourceAddress>();
+		list.add(new RssSourceAddress(logo,address));
+		this.StartDeliveringFeeds(list);
 	}
 
 	@Override
@@ -33,15 +39,7 @@ public class RssListActivity extends Activity {
 		return true;
 	}
 	
-	public void StartDeliveringFeeds(){
-		/*ArrayList<String> listUrl = new ArrayList<String>();
-		listUrl.add(new String("http://www.novinky.cz/rss2/"));
-		listUrl.add(new String("http://idnes.cz.feedsportal.com/c/34387/f/625936/index.rss"));
-		listUrl.add(new String("http://www.ceskatelevize.cz/ct24/rss/hlavni-zpravy/"));
-		RssSourceManager sourceManager = new RssSourceManager(this,listUrl);*/
-		ArrayList<RssSourceAddress> list = new ArrayList<RssSourceAddress>();
-		RssSourceAddress address = new RssSourceAddress("ct24",this.getString(R.string.ct24));
-		list.add(address);
+	public void StartDeliveringFeeds(ArrayList<RssSourceAddress> list){
 		RssSourceManager sourceManager = new RssSourceManager(this,list);
 		sourceManager.obtainFeeds();		
 	}
