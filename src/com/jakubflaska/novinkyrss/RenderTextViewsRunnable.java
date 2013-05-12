@@ -18,7 +18,7 @@ public class RenderTextViewsRunnable implements Runnable {
 	int iNrRows;
 	int iWindowWidth;
 	int iBoxPadding = 10;
-	int iHeight = 60;
+	int iHeight = 70;
 	TableLayout iMainLayout;
 	TableLayout iSourceLayout;
 	ArrayList<TextView> textViews = new ArrayList<TextView>();
@@ -42,7 +42,6 @@ public class RenderTextViewsRunnable implements Runnable {
 	}
 	void AddLogo(){
 		TextView logo = new TextView(iMainActivity);
-		//logo.setImageResource(iMainActivity.getResources().getIdentifier(iRssSource.getLogoFilename(), "drawable","com.jakubflaska.novinkyrss"));
 		logo.setText(iRssSource.getLogoFilename());
 		logo.setPadding(20, 10, 20, 10);
 		iSourceLayout.addView(logo);
@@ -72,8 +71,7 @@ public class RenderTextViewsRunnable implements Runnable {
     		}
     		iSourceLayout.addView(row);
     	}		
-	}
-	
+	}	
 	@Override
 	public void run() {		
 		this.CreateTextViews();
