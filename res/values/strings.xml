@@ -3,7 +3,9 @@
 
     <string name="app_name">Zprávy RSS</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="addnew_preset_name">Název zdroje</string>
+    <string name="addnew_preset_address">http://</string>
+    <string name="addnew_confirm">Uložit</string>    
     <string
         name="ct24"
         >http://www.ceskatelevize.cz/ct24/rss/hlavni-zpravy/</string>
