@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools1:context=".RssListActivity"
-    android:background="@color/black" >
+    android:background="@color/white" >
 
    <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
-        android:background="@color/black">
+        android:background="@color/white">
 
        <TableLayout
            android:id="@+id/tableLayout"

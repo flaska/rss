@@ -3,6 +3,10 @@ package com.jakubflaska.novinkyrss;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -32,13 +36,25 @@ public class RenderTextViewsRunnable implements Runnable {
 		for (RssFeed feed : iRssSource.getiListFeeds()) {
 			TextView t = new TextView(iMainActivity);
 			t.setText(feed.getiFeedTitle());
+			this.SetLink(t, feed);
 			textViews.add(t);
 		}			
 	}
 	void AddLogo(){
 		ImageView logo = new ImageView(iMainActivity);
 		logo.setImageResource(iMainActivity.getResources().getIdentifier(iRssSource.getLogoFilename(), "drawable","com.jakubflaska.novinkyrss"));
+		logo.setPadding(20, 10, 20, 10);
 		iSourceLayout.addView(logo);
+	}
+	void SetLink(TextView view, final RssFeed feed){
+		view.setOnClickListener(new OnClickListener() {
+		    @Override
+		    public void onClick(View v) {
+		    	Uri uriUrl = Uri.parse(feed.getiFeedLink()); 
+		        Intent intent = new Intent(Intent.ACTION_VIEW, uriUrl);
+		        iMainActivity.startActivity(intent);				
+		    }
+		});	
 	}
 	void OrganizeTextViewsIntoTable(){
     	Iterator<TextView> itr = textViews.iterator();
