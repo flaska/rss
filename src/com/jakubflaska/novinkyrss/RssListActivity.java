@@ -38,7 +38,7 @@ public class RssListActivity extends Activity {
 		listUrl.add(new String("http://www.novinky.cz/rss2/"));
 		listUrl.add(new String("http://idnes.cz.feedsportal.com/c/34387/f/625936/index.rss"));
 		listUrl.add(new String("http://www.ceskatelevize.cz/ct24/rss/hlavni-zpravy/"));
-		RssSourceManager sourceManager = new RssSourceManager(listUrl);		
+		RssSourceManager sourceManager = new RssSourceManager(this,listUrl);		
 		sourceManager.obtainFeeds();		
 	}
 	

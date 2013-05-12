@@ -70,4 +70,9 @@ public class InterfaceManager {
 		RenderTextViewsRunnable runnable = new RenderTextViewsRunnable(iMainActivity, source, iScreenWidth, iColumnsNr);
 		handler.post(runnable);
 	}
+	
+	public void RenderSource(TableLayout layout){
+		TableLayout mainlayout = (TableLayout) iMainActivity.findViewById(R.id.tableLayout);
+		mainlayout.addView(layout);
+	}
 }

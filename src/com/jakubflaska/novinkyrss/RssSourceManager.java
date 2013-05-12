@@ -1,18 +1,19 @@
 package com.jakubflaska.novinkyrss;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import android.widget.TextView;
 
 class RssSourceDownloadContentThread extends Thread {
-    String iInputUrl;
+	RssSourceAddress iInputUrl;
     RssSource iSource;
-    RssSourceDownloadContentThread(String inputUrl) {
+    RssSourceDownloadContentThread(RssSourceAddress inputUrl) {
         this.iInputUrl = inputUrl;
     }
     public void run() {
     	System.out.println("Thread ran: "+iInputUrl);
-		RssSourceFile s = new RssSourceFile(iInputUrl);
+		RssSourceFile s = new RssSourceFile(iInputUrl.getAddress());
 		s.DownloadXmlFileContent();
 		if (s.getResult()){
 			String xmlFile = s.GetXmlFileContent();			
@@ -34,17 +35,25 @@ class RssSourceDownloadContentThread extends Thread {
 }
 
 public class RssSourceManager {
-	ArrayList<String> iListInputUrl;
+	ArrayList<RssSourceAddress> iSourceAddresses;
 	ArrayList<RssSourceDownloadContentThread> iSources = new ArrayList<RssSourceDownloadContentThread>();
-	public RssSourceManager(ArrayList<String> listInputUrls){
-		iListInputUrl = listInputUrls;
+	RssListActivity iMainActivity;
+	public RssSourceManager(RssListActivity activity, ArrayList<String> listInputUrls){
+		iMainActivity = activity;
+		iSourceAddresses = this.GetSourceAddresses();
+	}
+	public ArrayList<RssSourceAddress> GetSourceAddresses(){
+		ArrayList<RssSourceAddress> list = new ArrayList<RssSourceAddress>();
+		RssSourceAddress address = new RssSourceAddress("ct24",iMainActivity.getString(R.string.ct24));
+		list.add(address);
+		return list;
 	}
 	public void obtainFeeds(){
-		for (String url : iListInputUrl){
-			RssSourceDownloadContentThread thread = new RssSourceDownloadContentThread(url);
+		for (RssSourceAddress adress : iSourceAddresses){
+			RssSourceDownloadContentThread thread = new RssSourceDownloadContentThread(adress);
 			iSources.add(thread);
-			thread.start();
-		}		
+			thread.start();			
+		}
 	}	
 	public String getContentOfSource(int indexsource, int indexfeed){
 		return iSources.get(indexsource).getSourceString(indexfeed);
