@@ -28,7 +28,7 @@ class RssSourceDownloadContentThread extends Thread {
 		RssParser parser = new RssParser(xmlFile);
 		parser.parseRssInputFile();
 		ArrayList<RssFeed> listFeeds = parser.getRssFeedsList();
-		RssSource source = new RssSource();		
+		RssSource source = new RssSource(iInputUrl.getLogoFilename(),iInputUrl.getAddress());		
 		source.setiListFeeds(listFeeds); 
 		return source;
     }
