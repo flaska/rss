@@ -34,11 +34,15 @@ public class RssListActivity extends Activity {
 	}
 	
 	public void StartDeliveringFeeds(){
-		ArrayList<String> listUrl = new ArrayList<String>();
+		/*ArrayList<String> listUrl = new ArrayList<String>();
 		listUrl.add(new String("http://www.novinky.cz/rss2/"));
 		listUrl.add(new String("http://idnes.cz.feedsportal.com/c/34387/f/625936/index.rss"));
 		listUrl.add(new String("http://www.ceskatelevize.cz/ct24/rss/hlavni-zpravy/"));
-		RssSourceManager sourceManager = new RssSourceManager(this,listUrl);		
+		RssSourceManager sourceManager = new RssSourceManager(this,listUrl);*/
+		ArrayList<RssSourceAddress> list = new ArrayList<RssSourceAddress>();
+		RssSourceAddress address = new RssSourceAddress("ct24",this.getString(R.string.ct24));
+		list.add(address);
+		RssSourceManager sourceManager = new RssSourceManager(this,list);
 		sourceManager.obtainFeeds();		
 	}
 	

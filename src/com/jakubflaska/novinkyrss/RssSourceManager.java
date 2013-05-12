@@ -38,15 +38,9 @@ public class RssSourceManager {
 	ArrayList<RssSourceAddress> iSourceAddresses;
 	ArrayList<RssSourceDownloadContentThread> iSources = new ArrayList<RssSourceDownloadContentThread>();
 	RssListActivity iMainActivity;
-	public RssSourceManager(RssListActivity activity, ArrayList<String> listInputUrls){
+	public RssSourceManager(RssListActivity activity, ArrayList<RssSourceAddress> listInputUrls){
 		iMainActivity = activity;
-		iSourceAddresses = this.GetSourceAddresses();
-	}
-	public ArrayList<RssSourceAddress> GetSourceAddresses(){
-		ArrayList<RssSourceAddress> list = new ArrayList<RssSourceAddress>();
-		RssSourceAddress address = new RssSourceAddress("ct24",iMainActivity.getString(R.string.ct24));
-		list.add(address);
-		return list;
+		iSourceAddresses = listInputUrls;
 	}
 	public void obtainFeeds(){
 		for (RssSourceAddress adress : iSourceAddresses){
