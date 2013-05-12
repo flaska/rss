@@ -10,4 +10,16 @@
     <string
         name="idnes"
         >http://idnes.cz.feedsportal.com/c/34387/f/625936/index.rss</string>
+    <string
+        name="novinky"
+        >http://www.novinky.cz/rss2/</string>  
+    <string
+        name="aktualne"
+        >http://aktualne.centrum.cz/feeds/rss/?photo=1</string>    
+    <string
+        name="lidovky"
+        >http://www.lidovky.cz/export/rss.asp?r=ln_domov</string>
+    <string
+        name="ihned"
+        >http://ihned.cz/?p=000000_rss</string>   
 </resources>

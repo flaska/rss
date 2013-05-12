@@ -37,7 +37,6 @@ public class RenderTextViewsRunnable implements Runnable {
 	}
 	void AddLogo(){
 		ImageView logo = new ImageView(iMainActivity);
-		//logo.setImageResource(R.drawable.ct24);
 		logo.setImageResource(iMainActivity.getResources().getIdentifier(iRssSource.getLogoFilename(), "drawable","com.jakubflaska.novinkyrss"));
 		iSourceLayout.addView(logo);
 	}
