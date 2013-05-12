@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class RssSource extends RssSourceAddress {
 	ArrayList<RssFeed> iListFeeds;
 	String iSourceName;
-	public RssSource (String logo, String address){
-		super(logo,address);
+	public RssSource (String logo, String address, String encoding){
+		super(logo,address, encoding);
 	}
 	public void setiSourceName(String source){
 		iSourceName = source;

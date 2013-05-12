@@ -5,6 +5,7 @@ import java.io.InputStreamReader;			// URL can return an input stream reader
 import java.io.UnsupportedEncodingException;
 import java.net.URL; 						// Downloads a RSS file from web
 import java.net.MalformedURLException; 		// Exception for URL
+import java.nio.charset.Charset;
 import java.io.IOException; 				// Exception for readers
 
 import android.util.Log;
@@ -18,10 +19,11 @@ public class RssSourceFile {
 	URL iSourceUrl = null;
 	String iLastErrorMessage = null;
 	String iXmlFileContent = null;
+	String iEncoding = "UTF8";
 	static String iErrorMsgInvalidUrl = new String("Cannot open provided URL.\n");
 	static String iErrorMsgReading = new String("Cannot open provided URL.\n");
 	/* Constructor, creates new URL object. */
-	public RssSourceFile(String url){
+	public RssSourceFile(String url, String encoding){
 		try{
 			iSourceUrl = new URL(url);
 	    } catch (MalformedURLException e) {
@@ -30,6 +32,7 @@ public class RssSourceFile {
 	    	return;
 	    }
 		iResult = true;
+		iEncoding = encoding;
 	}
 	
 	/* Get a Boolean describing if last action went successful */
@@ -54,7 +57,7 @@ public class RssSourceFile {
 		BufferedReader br;
 		StringBuffer output;
 		try {
-			isr = new InputStreamReader(iSourceUrl.openStream());
+			isr = new InputStreamReader(iSourceUrl.openStream(),iEncoding);
 			br = new BufferedReader(isr);
 			output = new StringBuffer();
 			String line;

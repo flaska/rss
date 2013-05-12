@@ -13,7 +13,7 @@ class RssSourceDownloadContentThread extends Thread {
     }
     public void run() {
     	System.out.println("Thread ran: "+iInputUrl);
-		RssSourceFile s = new RssSourceFile(iInputUrl.getAddress());
+		RssSourceFile s = new RssSourceFile(iInputUrl.getAddress(),iInputUrl.getEncoding());
 		s.DownloadXmlFileContent();
 		if (s.getResult()){
 			String xmlFile = s.GetXmlFileContent();			
@@ -28,7 +28,7 @@ class RssSourceDownloadContentThread extends Thread {
 		RssParser parser = new RssParser(xmlFile);
 		parser.parseRssInputFile();
 		ArrayList<RssFeed> listFeeds = parser.getRssFeedsList();
-		RssSource source = new RssSource(iInputUrl.getLogoFilename(),iInputUrl.getAddress());		
+		RssSource source = new RssSource(iInputUrl.getLogoFilename(),iInputUrl.getAddress(), iInputUrl.getEncoding());		
 		source.setiListFeeds(listFeeds); 
 		return source;
     }

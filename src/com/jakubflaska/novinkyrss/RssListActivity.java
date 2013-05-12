@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -23,12 +24,14 @@ public class RssListActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.InitGui();
 		Intent intent= getIntent(); // gets the previously created intent
 		String logo = intent.getStringExtra("logo"); // will return "FirstKeyValue"
 		String address = intent.getStringExtra("address"); // will return "SecondKeyValue"	
+		String encoding = intent.getStringExtra("encoding"); // will return "SecondKeyValue"
 		ArrayList<RssSourceAddress> list = new ArrayList<RssSourceAddress>();
-		list.add(new RssSourceAddress(logo,address));
+		list.add(new RssSourceAddress(logo,address,encoding));
 		this.StartDeliveringFeeds(list);
 	}
 
