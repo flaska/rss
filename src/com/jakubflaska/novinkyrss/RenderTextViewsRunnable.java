@@ -41,8 +41,9 @@ public class RenderTextViewsRunnable implements Runnable {
 		}			
 	}
 	void AddLogo(){
-		ImageView logo = new ImageView(iMainActivity);
-		logo.setImageResource(iMainActivity.getResources().getIdentifier(iRssSource.getLogoFilename(), "drawable","com.jakubflaska.novinkyrss"));
+		TextView logo = new TextView(iMainActivity);
+		//logo.setImageResource(iMainActivity.getResources().getIdentifier(iRssSource.getLogoFilename(), "drawable","com.jakubflaska.novinkyrss"));
+		logo.setText(iRssSource.getLogoFilename());
 		logo.setPadding(20, 10, 20, 10);
 		iSourceLayout.addView(logo);
 	}
