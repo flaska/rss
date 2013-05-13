@@ -70,14 +70,6 @@ public class RssSourceFile {
 			return false;
 		}
 		iXmlFileContent = output.toString();
-		/*if(iXmlFileContent.substring(0,100).toLowerCase().contains("windows-125")) {			
-			try {
-				byte[] b;
-				b =	iXmlFileContent.getBytes("");
-				iXmlFileContent = new String(b,"windows-1250");
-			}
-			catch (UnsupportedEncodingException e){}	
-		}*/
 		iLastErrorMessage = null;
 		iResult = true;
 		System.out.print("XML file successfuly readed:"+iXmlFileContent.substring(0,30)+"\n");		
