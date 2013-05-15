@@ -33,13 +33,17 @@ public final class R {
         public static final int iconlauncher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f090006;
-        public static final int addnew_address=0x7f090001;
-        public static final int addnew_confirm=0x7f090002;
-        public static final int addnew_name=0x7f090000;
-        public static final int scrollView1=0x7f090003;
-        public static final int sourceList=0x7f090005;
-        public static final int tableLayout=0x7f090004;
+        public static final int action_settings=0x7f09000a;
+        public static final int addnew_address=0x7f090003;
+        public static final int addnew_confirm=0x7f090004;
+        public static final int addnew_name=0x7f090002;
+        public static final int addnewloading=0x7f090000;
+        public static final int addnewloadingspinner=0x7f090001;
+        public static final int feedlistloading=0x7f090005;
+        public static final int feedlistloadingspinner=0x7f090006;
+        public static final int scrollView1=0x7f090007;
+        public static final int sourceList=0x7f090009;
+        public static final int tableLayout=0x7f090008;
     }
     public static final class layout {
         public static final int activity_addnew=0x7f030000;
@@ -55,18 +59,20 @@ public final class R {
         public static final int addnew_cannot_connect=0x7f050007;
         public static final int addnew_cannot_parse=0x7f050008;
         public static final int addnew_confirm=0x7f050004;
+        public static final int addnew_default_url=0x7f05000b;
         public static final int addnew_emptyfields=0x7f050005;
         public static final int addnew_invalidurl=0x7f050006;
         public static final int addnew_preset_address=0x7f050003;
         public static final int addnew_preset_name=0x7f050002;
         public static final int addnew_success=0x7f050009;
-        public static final int aktualne=0x7f05000d;
+        public static final int addnewsources=0x7f05000a;
+        public static final int aktualne=0x7f05000f;
         public static final int app_name=0x7f050000;
-        public static final int ct24=0x7f05000a;
-        public static final int idnes=0x7f05000b;
-        public static final int ihned=0x7f05000f;
-        public static final int lidovky=0x7f05000e;
-        public static final int novinky=0x7f05000c;
+        public static final int ct24=0x7f05000c;
+        public static final int idnes=0x7f05000d;
+        public static final int ihned=0x7f050011;
+        public static final int lidovky=0x7f050010;
+        public static final int novinky=0x7f05000e;
     }
     public static final class style {
         /** 

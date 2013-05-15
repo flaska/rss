@@ -4,6 +4,22 @@
     android:layout_height="match_parent"
     tools1:context=".RssListActivity"
     android:background="@color/white" >
+    
+    
+    <LinearLayout
+        android:id="@+id/feedlistloading"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:id="@+id/feedlistloadingspinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </ProgressBar>
+    </LinearLayout>      
 
    <ScrollView
         android:id="@+id/scrollView1"

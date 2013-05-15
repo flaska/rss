@@ -7,10 +7,12 @@
     <string name="addnew_preset_address">http://</string>
     <string name="addnew_confirm">Uložit</string>    
     <string name="addnew_emptyfields">Vyplňte prosím název a adresu zdroje.</string>
-    <string name="addnew_invalidurl">Zadaná adresa se zdá být neplatná.</string>    
+    <string name="addnew_invalidurl">Zkontrolujte prosím adresu. Adresa je neplatná.</string>    
     <string name="addnew_cannot_connect">Na adresu se nelze připojit. Je adresa zadána správně?</string>    
     <string name="addnew_cannot_parse">Tento zdroj bohužel neumíme načíst. Ověřte prosím, že se jedná a RSS verze 2.0.</string>   
     <string name="addnew_success">Nový RSS zdroj byl úspěšně přidán.</string>  
+    <string name="addnewsources">Přidat další zdroje</string>  
+    <string name="addnew_default_url">http://</string> 
     <string
         name="ct24"
         >http://www.ceskatelevize.cz/ct24/rss/hlavni-zpravy/</string>
